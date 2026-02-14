@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Nandini ❤️</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffe6ea;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 30px;
+            box-shadow: 0 15px 35px rgba(214, 51, 132, 0.15);
+            max-width: 400px;
+            width: 90%;
+        }
+
+        h1 { color: #d63384; font-size: 1.8rem; margin: 20px 0; }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 25px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 28px;
+            font-size: 18px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #yesBtn { background-color: #ff4d6d; color: white; box-shadow: 0 4px 15px rgba(255, 77, 109, 0.3); }
+
+        #noBtn { background-color: #f8f9fa; color: #6c757d; border: 1px solid #dee2e6; }
+
+        .gif-img { width: 100%; max-width: 200px; border-radius: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainContainer">
+        <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZhcHByZ3N6cXF5Zmt6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6ZzR6JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/cLS1cfxvGOPVpf9g3y/giphy.gif" class="gif-img" alt="Cute Cat">
+        <h1 id="question">Nandini, will you be my Valentine? 🌹</h1>
+        
+        <div class="buttons">
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+    </div>
+
+    <script>
+        const yesBtn = document.getElementById('yesBtn');
+        const noBtn = document.getElementById('noBtn');
+        const container = document.getElementById('mainContainer');
+
+        let yesSize = 18;
+        let noClicks = 0;
+
+        const messages = [
+            "Are you sure, Nandini?",
+            "Paka? Think again!",
+            "Don't do this to me! 🥺",
+            "Nandini please...",
+            "I'll buy you chocolates! 🍫",
+            "Last chance to say yes!",
+            "Okay, I'm gonna cry...",
+            "You're breaking my heart!",
+            "Just click the big red button!",
+            "I'm not taking no for an answer! ❤️"
+        ];
+
+        noBtn.addEventListener('click', () => {
+            // Make Yes button bigger
+            yesSize += 25;
+            yesBtn.style.fontSize = `${yesSize}px`;
+            yesBtn.style.padding = `${yesSize/2}px ${yesSize}px`;
+
+            // Change No button text
+            if (noClicks < messages.length) {
+                noBtn.innerText = messages[noClicks];
+            } else {
+                noBtn.innerText = "Fine, you win... but try again? 😜";
+            }
+            noClicks++;
+        });
+
+        yesBtn.addEventListener('click', () => {
+            container.innerHTML = `
+                <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHIwdWswYXBqZzR4eG14eG14eG14eG14eG14eG14eG14eG14JmVwPXYxX2ludGVybmFsX2dpZl9ieV9pZCZjdD1z/MDJ9IbxxvDUQM/giphy.gif" class="gif-img">
+                <h1 style="color: #d63384;">Yay!!! Best Valentine ever! ❤️<br><br>Can't wait, Nandini! ✨</h1>
+            `;
+        });
+    </script>
+</body>
+</html>
